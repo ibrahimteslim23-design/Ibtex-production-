@@ -2,7 +2,9 @@
 <html>
 
 <head>
-    <title>My First Website</title>
+  
+  <title>IBTEX PRODUCTION | House Painting, Paint Production & Art Printing</title>
+  
   <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
@@ -12,29 +14,33 @@
 
     <h1>IBTEX PRODUCTION</h1>
 
-    <p>House Painting • Paint Production • Art & Printing</p>
+    <p>Professional House Painting • Premium Paint Production • Art & Printing</p>
+
+    <p class="tagline">
+Bringing Color, Beauty & Value to Every Home.
+    </p>
 
     <a href="#contact">
         <button>Get a Free Quote</button>
     </a>
   </header>
-  
+
   <div class="slider">
     <img id="slide" src="painting 1.jpg" alt="IBTEX Painting">
+
+    <button class="prev" onclick="prevSlide()">❮</button>
+    <button class="next" onclick="nextSlide()">❯</button>
   </div>
+  
 
 <hr>
 
   <nav>
-
-<a href="index.html">Home</a>
-
+    <a href="index.html">Home</a>
 <a href="about.html">About</a>
-
 <a href="services.html">Services</a>
-
 <a href="gallery.html">Gallery</a>
-
+<a href="videos.html">Videos</a>
 <a href="contact.html">Contact</a>
 
   </nav>
@@ -45,6 +51,30 @@
   <h2 id="about" style="text-align:center;">About IBTEX PRODUCTION</h2>
 
   <h2 id="services" style="text-align:center;">Our Services</h2>
+
+  <section class="process">
+    <h2>Our Simple Process</h2>
+
+    <div class="process-step">
+        <h3>1. Request a Quote</h3>
+        <p>Contact us through our website or WhatsApp.</p>
+    </div>
+
+    <div class="process-step">
+        <h3>2. Site Inspection</h3>
+        <p>We inspect the project and recommend the best solution.</p>
+    </div>
+
+    <div class="process-step">
+        <h3>3. Professional Execution</h3>
+        <p>Our skilled team completes the work with quality materials.</p>
+    </div>
+
+    <div class="process-step">
+        <h3>4. Customer Satisfaction</h3>
+        <p>We deliver a neat, durable finish and ensure you're satisfied.</p>
+    </div>
+  </section>
 
   <div class="card service">
     <h3>🏠 House Painting</h3>
@@ -113,20 +143,16 @@ max-width:400px;margin: auto; padding: 20px; border-radius: 15px; box-shadow:0px
 
 </>
 
-  <section class="gallery">
-
+  <section class="projects">
     <h2>Our Recent Projects</h2>
+    <p>We take pride in delivering quality painting and finishing services.</p>
 
-<div class="gallery-container">
-  
-  <img src="painting 1.jpg" alt="House Painting">
-
-<img src="painting 2.jpg" alt="Paint Production">
-
-<img src="painting 3.jpg" alt="Art & Printing">
-
-</div>
-
+    <div class="project-grid">
+        <img src="painting 1.jpg" alt="Project 1">
+        <img src="painting 2.jpg" alt="Project 2">
+        <img src="painting 3.jpg" alt="Project 3">
+        <img src="painting 4.jpg" alt="Project 4">
+    </div>
   </section>
 
   <section class="testimonials">
@@ -258,8 +284,14 @@ class="whatsapp-float" target="_blank">
 
   <a href="#" class="top-button">⬆</a>
 
+  <a href="tel:+2348129349291" class="call-float">
+    📞
+  </a>
+
 
 <script src="script.js"></script>
+
+  <button id="darkModeBtn">🌙</button>
 
   </body>
 
