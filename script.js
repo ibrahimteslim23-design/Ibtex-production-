@@ -1,23 +1,48 @@
-function sendQuote() {
+const images = [
+  "painting 1.jpg",
+  "painting 2.jpg",
+  "painting 3.jpg",
+  "painting 4.jpg"
+];
 
-let name = document.getElementById("name").value;
-let phone = document.getElementById("phone").value;
-let email = document.getElementById("email").value;
-let service = document.getElementById("service").value;
-let project = document.getElementById("message").value;
+let current = 0;
 
-let message =
-"Hello IBTEX PRODUCTION\n\n" +
-"My Name: " + name + "\n" +
-"Phone: " + phone + "\n" +
-"Email: " + email + "\n" +
-"Service: " + service + "\n" +
-"Project: " + project;
+setInterval(function () {
+    current = (current + 1) % images.length;
+    document.getElementById("slide").src = images[current];
+}, 3000);
 
-  let url =
-"https://api.whatsapp.com/send?phone=2348129349291&text=" +
-encodeURIComponent(message);
+function nextSlide(){
+    current = (current + 1) % images.length;
+    document.getElementById("slide").src = images[current];
+}
 
-window.location.href = url;
+function prevSlide(){
+    current = (current - 1 + images.length) % images.length;
+    document.getElementById("slide").src = images[current];
+}
+
+const darkModeBtn = document.getElementById("darkModeBtn");
+
+if (darkModeBtn) {
+
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+        darkModeBtn.innerHTML = "☀️";
+    }
+
+    darkModeBtn.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+            localStorage.setItem("theme", "dark");
+            darkModeBtn.innerHTML = "☀️";
+        } else {
+            localStorage.setItem("theme", "light");
+            darkModeBtn.innerHTML = "🌙";
+        }
+
+    });
 
 }
