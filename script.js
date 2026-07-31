@@ -77,7 +77,8 @@ Service: ${service}
 Project Details:
 ${message}`;
 
-    let url = "https://wa.me/2348129349291?text=" + encodeURIComponent(text);
+  let url = "https://api.whatsapp.com/send?phone=2348129349291&text=" + encodeURIComponent(text);
 
-  window.location.href = url;
+window.location.href = url;
+
 }
