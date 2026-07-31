@@ -7,19 +7,29 @@ const images = [
 
 let current = 0;
 
-setInterval(function () {
-    current = (current + 1) % images.length;
-    document.getElementById("slide").src = images[current];
-}, 3000);
+const slide = document.getElementById("slide");
 
-function nextSlide(){
-    current = (current + 1) % images.length;
-    document.getElementById("slide").src = images[current];
+if (slide) {
+    setInterval(function () {
+        current = (current + 1) % images.length;
+        slide.src = images[current];
+    }, 3000);
 }
 
-function prevSlide(){
+function nextSlide() {
+    const slide = document.getElementById("slide");
+    if (!slide) return;
+
+    current = (current + 1) % images.length;
+    slide.src = images[current];
+}
+
+function prevSlide() {
+    const slide = document.getElementById("slide");
+    if (!slide) return;
+
     current = (current - 1 + images.length) % images.length;
-    document.getElementById("slide").src = images[current];
+    slide.src = images[current];
 }
 
 const darkModeBtn = document.getElementById("darkModeBtn");
@@ -45,4 +55,29 @@ if (darkModeBtn) {
 
     });
 
+}
+
+function sendQuote() {
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let email = document.getElementById("email").value;
+    let service = document.getElementById("service").value;
+    let message = document.getElementById("message").value;
+
+    let text = `Hello IBTEX PRODUCTION,
+
+I would like to request a quotation.
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Service: ${service}
+
+Project Details:
+${message}`;
+
+    let url = "https://wa.me/2348129349291?text=" + encodeURIComponent(text);
+
+  window.location.href = url;
 }
