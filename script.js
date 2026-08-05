@@ -82,3 +82,49 @@ ${message}`;
 window.location.href = url;
 
 }
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+if(menuBtn){
+    menuBtn.addEventListener("click", function(){
+      if (navLinks.style.display === "block") {
+    navLinks.style.display = "none";
+} else {
+    navLinks.style.display = "block";
+      }
+    });
+}
+
+const fades = document.querySelectorAll(".fade");
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+},{
+    threshold:0.2
+});
+
+fades.forEach(section=>{
+    observer.observe(section);
+});
+
+const topBtn = document.getElementById("topBtn");
+
+window.onscroll = function () {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+};
+
+function topFunction() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
